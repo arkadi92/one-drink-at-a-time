@@ -19,13 +19,14 @@ const cocktails = [
     name: "Margarita",
     tagline: "Bright, citrusy & refreshing",
     spirit: "Tequila",
-    ingredients: ["50ml Tequila Blanco", "30ml Fresh Lime Juice", "20ml Triple Sec", "10ml Agave Syrup"],
+    ingredients: ["50ml Tequila Blanco", "30ml Fresh Lime Juice", "20ml Triple Sec", "10ml Simple Syrup or Agave Syrup"],
     garnish: "Lime wheel, salt rim",
     glass: "Coupe glass",
     method: "Add all ingredients to a shaker with ice. Shake vigorously for 15 seconds. Strain into a salt-rimmed glass. Garnish with a lime wheel on the rim.",
     color: "#7CB342",
     gradient: ["#AED581", "#558B2F"],
     emoji: "\u{1F34B}",
+    image: "/images/margarita.jpg",
   },
   {
     id: 3,
@@ -119,6 +120,17 @@ const spiritIcons = {
 };
 
 function CocktailImage({ cocktail, height = 280 }) {
+  if (cocktail.image) {
+    return (
+      <div style={{ width: "100%", height: height, overflow: "hidden" }}>
+        <img
+          src={cocktail.image}
+          alt={cocktail.name}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+      </div>
+    );
+  }
   const id = "grad-" + cocktail.id;
   return (
     <svg width="100%" height={height} viewBox="0 0 400 350" preserveAspectRatio="xMidYMid slice">
