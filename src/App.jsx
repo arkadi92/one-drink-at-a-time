@@ -13,6 +13,7 @@ const cocktails = [
     color: "#E8453C",
     gradient: ["#E8453C", "#C62828"],
     emoji: "\u{1F943}",
+    image: "/images/negroni.png",
   },
   {
     id: 2,
@@ -79,6 +80,7 @@ const cocktails = [
     color: "#2E7D32",
     gradient: ["#81C784", "#1B5E20"],
     emoji: "\u{1F33F}",
+    image: "/images/mojito.png",
   },
   {
     id: 7,
@@ -105,6 +107,7 @@ const cocktails = [
     color: "#FF6F00",
     gradient: ["#FFB74D", "#E65100"],
     emoji: "\u{1F34A}",
+    image: "/images/aperol.png",
   },
   {
     id: 9,
