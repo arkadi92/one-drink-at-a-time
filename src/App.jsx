@@ -118,6 +118,7 @@ const cocktails = [
     color: "#D4881C",
     gradient: ["#F0A830", "#A0522D"],
     emoji: "\u{1F952}",
+    image: "/images/amsour.png",
   },
 ];
 
