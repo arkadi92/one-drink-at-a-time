@@ -27,7 +27,7 @@ const cocktails = [
     color: "#7CB342",
     gradient: ["#AED581", "#558B2F"],
     emoji: "\u{1F34B}",
-    image: "/images/margarita.jpg",
+    image: "/images/margarita2.png",
   },
   {
     id: 3,
@@ -68,6 +68,7 @@ const cocktails = [
     color: "#388E3C",
     gradient: ["#66BB6A", "#1B5E20"],
     emoji: "\u{1F33F}",
+    image: "/images/basil.png",
   },
   {
     id: 6,
@@ -95,6 +96,7 @@ const cocktails = [
     color: "#558B2F",
     gradient: ["#9CCC65", "#33691E"],
     emoji: "\u{1F378}",
+    image: "/images/lastword.png",
   },
   {
     id: 8,
