@@ -41,6 +41,7 @@ const cocktails = [
     color: "#E65100",
     gradient: ["#FFB74D", "#BF360C"],
     emoji: "\u{1F34A}",
+    image: "/images/Moscow_mule.png",
   },
   {
     id: 4,
