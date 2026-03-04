@@ -13,7 +13,7 @@ const cocktails = [
     color: "#E8453C",
     gradient: ["#E8453C", "#C62828"],
     emoji: "\u{1F943}",
-    image: "/images/negroni.png",
+    image: "/images/negroni.jpg",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const cocktails = [
     color: "#7CB342",
     gradient: ["#AED581", "#558B2F"],
     emoji: "\u{1F34B}",
-    image: "/images/margarita2.png",
+    image: "/images/margarita2.jpg",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const cocktails = [
     color: "#E65100",
     gradient: ["#FFB74D", "#BF360C"],
     emoji: "\u{1F34A}",
-    image: "/images/Moscow_mule.png",
+    image: "/images/Moscow_mule.jpg",
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const cocktails = [
     color: "#388E3C",
     gradient: ["#66BB6A", "#1B5E20"],
     emoji: "\u{1F33F}",
-    image: "/images/basil.png",
+    image: "/images/basil.jpg",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const cocktails = [
     color: "#2E7D32",
     gradient: ["#81C784", "#1B5E20"],
     emoji: "\u{1F33F}",
-    image: "/images/mojito.png",
+    image: "/images/mojito.jpg",
   },
   {
     id: 7,
@@ -83,7 +83,7 @@ const cocktails = [
     color: "#558B2F",
     gradient: ["#9CCC65", "#33691E"],
     emoji: "\u{1F378}",
-    image: "/images/lastword.png",
+    image: "/images/lastword.jpg",
   },
   {
     id: 8,
@@ -97,7 +97,7 @@ const cocktails = [
     color: "#FF6F00",
     gradient: ["#FFB74D", "#E65100"],
     emoji: "\u{1F34A}",
-    image: "/images/aperol.png",
+    image: "/images/aperol.jpg",
   },
   {
     id: 9,
@@ -111,7 +111,7 @@ const cocktails = [
     color: "#D4881C",
     gradient: ["#F0A830", "#A0522D"],
     emoji: "\u{1F952}",
-    image: "/images/amsour.png",
+    image: "/images/amsour.jpg",
   },
   {
     id: 10,
@@ -125,7 +125,7 @@ const cocktails = [
     color: "#7CB342",
     gradient: ["#C5E1A5", "#33691E"],
     emoji: "\u{1F34D}",
-    image: "/images/Chartreuse_Swizzle.png",
+    image: "/images/Chartreuse_Swizzle.jpg",
   },
 ];
 
@@ -147,7 +147,7 @@ function CocktailImage({ cocktail, height = 280 }) {
         <img
           src={cocktail.image}
           alt={cocktail.name}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
       </div>
     );
