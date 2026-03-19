@@ -76,7 +76,7 @@ const cocktails = [
     name: "The Last Word",
     tagline: "Herbal, complex & perfectly equal",
     spirit: "Gin",
-    ingredients: ["22.5ml Gin", "22.5ml Green Chartreuse", "22.5ml Maraschino Liqueur", "22.5ml Fresh Lime Juice"],
+    ingredients: ["25ml Gin", "20ml Green Chartreuse", "20ml Luxardo Maraschino Liqueur", "20ml Fresh Lime Juice"],
     garnish: "Luxardo cherry",
     glass: "Coupe glass",
     method: "Add all ingredients to a shaker with ice. Shake vigorously for 15 seconds. Fine strain into a chilled coupe glass. Garnish with a Luxardo cherry on a pick.",
