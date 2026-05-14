@@ -1,6 +1,7 @@
 import CocktailImage from "./CocktailImage";
+import { convertIngredient } from "../utils/convertIngredient";
 
-export default function CocktailDetail({ cocktail, onBack }) {
+export default function CocktailDetail({ cocktail, onBack, unit = "ml" }) {
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px", animation: "fadeIn 0.3s ease" }}>
       <button
@@ -85,7 +86,7 @@ export default function CocktailDetail({ cocktail, onBack }) {
                 }}
               >
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: cocktail.color, flexShrink: 0 }} />
-                {ing}
+                {convertIngredient(ing, unit)}
               </div>
             ))}
           </div>

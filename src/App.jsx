@@ -13,6 +13,7 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState("");
   const [spirit, setSpirit] = useState("All");
+  const [unit, setUnit] = useState("ml");
 
   const filtered = cocktails.filter((c) => {
     const matchSearch =
@@ -61,33 +62,56 @@ export default function App() {
               </div>
             </div>
           </div>
-          {!selected && (
-            <input
-              type="text"
-              placeholder="Search cocktails or ingredients..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              style={{
-                padding: "10px 18px",
-                borderRadius: 30,
-                border: "1px solid #e0e0e0",
-                fontSize: 14,
-                width: 280,
-                outline: "none",
-                background: "#f8f8f8",
-                transition: "border-color 0.2s, box-shadow 0.2s",
-                fontFamily: "inherit",
-              }}
-              onFocus={(e) => { e.target.style.borderColor = "#bbb"; e.target.style.boxShadow = "0 0 0 3px rgba(0,0,0,0.04)"; }}
-              onBlur={(e) => { e.target.style.borderColor = "#e0e0e0"; e.target.style.boxShadow = "none"; }}
-            />
-          )}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {!selected && (
+              <input
+                type="text"
+                placeholder="Search cocktails or ingredients..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                style={{
+                  padding: "10px 18px",
+                  borderRadius: 30,
+                  border: "1px solid #e0e0e0",
+                  fontSize: 14,
+                  width: 280,
+                  outline: "none",
+                  background: "#f8f8f8",
+                  transition: "border-color 0.2s, box-shadow 0.2s",
+                  fontFamily: "inherit",
+                }}
+                onFocus={(e) => { e.target.style.borderColor = "#bbb"; e.target.style.boxShadow = "0 0 0 3px rgba(0,0,0,0.04)"; }}
+                onBlur={(e) => { e.target.style.borderColor = "#e0e0e0"; e.target.style.boxShadow = "none"; }}
+              />
+            )}
+            <div style={{ display: "flex", borderRadius: 20, border: "1px solid #e0e0e0", overflow: "hidden", flexShrink: 0 }}>
+              {["ml", "oz"].map((u) => (
+                <button
+                  key={u}
+                  onClick={() => setUnit(u)}
+                  style={{
+                    padding: "7px 14px",
+                    border: "none",
+                    background: unit === u ? "#1a1a1a" : "#fff",
+                    color: unit === u ? "#fff" : "#888",
+                    fontSize: 13,
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    fontFamily: "inherit",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  {u}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </header>
 
       <main style={{ maxWidth: 1100, margin: "0 auto", padding: "40px 24px 80px" }}>
         {selected ? (
-          <CocktailDetail cocktail={selected} onBack={() => setSelected(null)} />
+          <CocktailDetail cocktail={selected} onBack={() => setSelected(null)} unit={unit} />
         ) : (
           <>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
