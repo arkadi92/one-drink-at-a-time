@@ -12,6 +12,8 @@ import amarettoSour from "./cocktails/amaretto-sour";
 import chartreuseSwizzle from "./cocktails/chartreuse-swizzle";
 import oldFashioned from "./cocktails/old-fashioned";
 import bellini from "./cocktails/bellini";
+import jasmine from "./cocktails/jasmine";
+import midoriSour from "./cocktails/midori-sour";
 
 export const cocktails = [
   negroni,
@@ -25,6 +27,8 @@ export const cocktails = [
   chartreuseSwizzle,
   oldFashioned,
   bellini,
+  jasmine,
+  midoriSour,
 ];
 
 export const spiritIcons = {

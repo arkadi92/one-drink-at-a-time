@@ -1,0 +1,20 @@
+export default {
+  id: 13,
+  name: "Jasmine",
+  tagline: "Citrusy, bittersweet & beautifully balanced",
+  spirit: "Gin",
+  ingredients: [
+    "45ml Gin",
+    "7.5ml Campari",
+    "7.5ml Cointreau",
+    "22.5ml Fresh Lemon Juice",
+    "7.5ml Simple Syrup (optional)",
+  ],
+  garnish: "Lemon twist",
+  glass: "Coupe glass",
+  method: "Add all ingredients to a shaker with ice. Shake vigorously for 15 seconds. Fine strain into a chilled coupe glass. Garnish with a lemon twist.",
+  color: "#E64A19",
+  gradient: ["#FFAB91", "#BF360C"],
+  emoji: "\u{1F338}",
+  image: null,
+};
