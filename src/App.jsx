@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cocktails } from "./data/cocktails";
 import AgeGate from "./components/AgeGate";
 import FilterBar from "./components/FilterBar";
@@ -14,6 +14,12 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [spirit, setSpirit] = useState("All");
   const [unit, setUnit] = useState("ml");
+
+  useEffect(() => {
+    const handleKeyDown = (e) => { if (e.key === "Escape") setSelected(null); };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const filtered = cocktails.filter((c) => {
     const matchSearch =
