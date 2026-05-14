@@ -9,7 +9,7 @@ const knownSpirits = ["Gin", "Tequila", "Vodka", "Rum", "Whiskey", "Wine"];
 const spirits = ["All", ...knownSpirits, "Others"];
 
 export default function App() {
-  const [verified, setVerified] = useState(false);
+  const [verified, setVerified] = useState(() => localStorage.getItem("ageVerified") === "true");
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState("");
   const [spirit, setSpirit] = useState("All");
@@ -24,7 +24,7 @@ export default function App() {
   });
 
   if (!verified) {
-    return <AgeGate onVerify={() => setVerified(true)} />;
+    return <AgeGate onVerify={() => { localStorage.setItem("ageVerified", "true"); setVerified(true); }} />;
   }
 
   return (
