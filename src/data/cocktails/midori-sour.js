@@ -1,0 +1,20 @@
+export default {
+  id: 14,
+  name: "Classic Midori Sour",
+  tagline: "Sweet, tangy & vibrantly green",
+  spirit: "Others",
+  ingredients: [
+    "30ml Vodka",
+    "45ml Midori Melon Liqueur",
+    "15ml Fresh Lemon Juice",
+    "15ml Fresh Lime Juice",
+    "90ml Club Soda",
+  ],
+  garnish: "Lemon wheel or maraschino cherry",
+  glass: "Collins glass",
+  method: "Fill a Collins glass with ice. Pour in the vodka, Midori, and citrus juices. Stir well for about 20 seconds. Top with club soda. Garnish with a lemon wheel or maraschino cherry and serve.",
+  color: "#43A047",
+  gradient: ["#69F0AE", "#1B5E20"],
+  emoji: "\u{1F348}",
+  image: null,
+};
