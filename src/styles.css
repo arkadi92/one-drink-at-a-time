@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button:focus-visible, input:focus-visible { outline: 3px solid #2765b0 !important; outline-offset: 4px; }
+.cocktail-card { display: flex; flex-direction: column; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+@media (hover: hover) { .cocktail-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.12); transform: translateY(-6px); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 768px) {
+  .header-inner { flex-wrap: wrap; gap: 16px; }
+  .header-controls { width: 100%; }
+  .cocktail-search { min-width: 0; width: 100% !important; flex: 1; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 540px) { .grid { grid-template-columns: minmax(0, 1fr) !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

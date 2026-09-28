@@ -9,7 +9,7 @@ const knownSpirits = ["Gin", "Tequila", "Vodka", "Rum", "Whiskey", "Wine"];
 const spirits = ["All", ...knownSpirits, "Others"];
 
 export default function App() {
-  const [verified, setVerified] = useState(() => localStorage.getItem("ageVerified") === "true");
+  const [verified, setVerified] = useState(() => { try { return localStorage.getItem("ageVerified") === "true"; } catch { return false; } });
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState("");
   const [spirit, setSpirit] = useState("All");
@@ -21,27 +21,23 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const query = search.trim().toLowerCase();
   const filtered = cocktails.filter((c) => {
     const matchSearch =
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.ingredients.some((i) => i.toLowerCase().includes(search.toLowerCase()));
+      c.name.toLowerCase().includes(query) ||
+      c.ingredients.some((i) => i.toLowerCase().includes(query));
     const isOther = !knownSpirits.includes(c.spirit);
     const matchSpirit = spirit === "All" || (spirit === "Others" ? isOther : c.spirit === spirit);
     return matchSearch && matchSpirit;
   });
 
   if (!verified) {
-    return <AgeGate onVerify={() => { localStorage.setItem("ageVerified", "true"); setVerified(true); }} />;
+    return <AgeGate onVerify={() => { try { localStorage.setItem("ageVerified", "true"); } catch { /* Storage may be disabled. */ } setVerified(true); }} />;
   }
 
   return (
     <div style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", background: "#FAFAFA", minHeight: "100vh" }}>
-      <style>{
-        "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');" +
-        "@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }" +
-        "* { box-sizing: border-box; }" +
-        "@media (max-width: 768px) { .grid { grid-template-columns: 1fr !important; } .detail-grid { grid-template-columns: 1fr !important; } }"
-      }</style>
+
 
       <header
         style={{
@@ -54,9 +50,9 @@ export default function App() {
           zIndex: 100,
         }}
       >
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div
-            style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 12 }}
+        <div className="header-inner" style={{ maxWidth: 1100, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <button type="button" aria-label="Show all cocktails"
+            style={{ border: 0, padding: 0, background: "none", fontFamily: "inherit", textAlign: "left", cursor: "pointer", display: "flex", alignItems: "center", gap: 12 }}
             onClick={() => { setSelected(null); setSearch(""); setSpirit("All"); }}
           >
             <div>
@@ -67,11 +63,13 @@ export default function App() {
                 A cocktail journey
               </div>
             </div>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          </button>
+          <div className="header-controls" style={{ display: "flex", alignItems: "center", gap: 12 }}>
             {!selected && (
               <input
-                type="text"
+                type="search"
+                aria-label="Search cocktails or ingredients"
+                className="cocktail-search"
                 placeholder="Search cocktails or ingredients..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -94,6 +92,7 @@ export default function App() {
               {["ml", "oz"].map((u) => (
                 <button
                   key={u}
+                  aria-pressed={unit === u}
                   onClick={() => setUnit(u)}
                   style={{
                     padding: "7px 14px",
@@ -144,8 +143,8 @@ export default function App() {
               className="grid"
               style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}
             >
-              {filtered.map((c) => (
-                <CocktailCard key={c.id} cocktail={c} onClick={setSelected} />
+              {filtered.map((c, index) => (
+                <CocktailCard key={c.id} cocktail={c} priority={index === 0} onClick={setSelected} />
               ))}
             </div>
 

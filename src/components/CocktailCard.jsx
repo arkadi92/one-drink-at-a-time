@@ -1,29 +1,27 @@
-import { useState } from "react";
 import CocktailImage from "./CocktailImage";
 
-export default function CocktailCard({ cocktail, onClick }) {
-  const [hovered, setHovered] = useState(false);
+export default function CocktailCard({ cocktail, onClick, priority }) {
   return (
-    <div
+    <button
+      type="button"
+      className="cocktail-card"
+      aria-label={`View ${cocktail.name} recipe`}
       onClick={() => onClick(cocktail)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       style={{
+        border: 0, padding: 0, textAlign: "left", fontFamily: "inherit", width: "100%",
         cursor: "pointer",
         borderRadius: 16,
         overflow: "hidden",
         background: "#fff",
-        boxShadow: hovered ? "0 20px 40px rgba(0,0,0,0.12)" : "0 4px 16px rgba(0,0,0,0.06)",
-        transform: hovered ? "translateY(-6px) scale(1.01)" : "translateY(0) scale(1)",
         transition: "all 0.3s ease",
       }}
     >
-      <CocktailImage cocktail={cocktail} />
+      <CocktailImage cocktail={cocktail} priority={priority} />
       <div style={{ padding: "18px 20px 22px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <h3 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: "#1a1a1a" }}>
+          <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: "#1a1a1a" }}>
             {cocktail.name}
-          </h3>
+          </h2>
           <span
             style={{
               fontSize: 11,
@@ -60,6 +58,6 @@ export default function CocktailCard({ cocktail, onClick }) {
           ))}
         </div>
       </div>
-    </div>
+    </button>
   );
 }

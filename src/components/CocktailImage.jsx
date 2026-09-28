@@ -1,11 +1,13 @@
-export default function CocktailImage({ cocktail, height = 280 }) {
+export default function CocktailImage({ cocktail, height = 280, priority = false }) {
   if (cocktail.image) {
     return (
       <div style={{ width: "100%", height: height, overflow: "hidden" }}>
         <img
           src={cocktail.image}
           alt={cocktail.name}
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
       </div>
@@ -13,7 +15,7 @@ export default function CocktailImage({ cocktail, height = 280 }) {
   }
   const id = "grad-" + cocktail.id;
   return (
-    <svg width="100%" height={height} viewBox="0 0 400 350" preserveAspectRatio="xMidYMid slice">
+    <svg role="img" aria-label={cocktail.name} width="100%" height={height} viewBox="0 0 400 350" preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor={cocktail.gradient[0]} />

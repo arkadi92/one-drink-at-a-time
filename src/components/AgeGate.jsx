@@ -4,14 +4,14 @@ export default function AgeGate({ onVerify }) {
       fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
       background: "#1a1a1a",
       minHeight: "100vh",
+      padding: 16,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
     }}>
-      <style>{"@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');"}</style>
       <div style={{
         textAlign: "center",
-        padding: "48px 40px",
+        padding: "40px 24px",
         maxWidth: 420,
         background: "#fff",
         borderRadius: 20,
@@ -51,7 +51,7 @@ export default function AgeGate({ onVerify }) {
         }}>
           You must be 18 or older to enter this site
         </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
           <button
             onClick={onVerify}
             style={{
