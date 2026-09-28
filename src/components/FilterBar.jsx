@@ -8,6 +8,7 @@ export default function FilterBar({ spirits, active, onChange }) {
         return (
           <button
             key={s}
+            aria-pressed={isActive}
             onClick={() => onChange(s)}
             style={{
               padding: "9px 20px",

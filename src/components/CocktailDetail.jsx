@@ -27,7 +27,7 @@ export default function CocktailDetail({ cocktail, onBack, unit = "ml" }) {
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}
       >
         <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 30px rgba(0,0,0,0.1)" }}>
-          <CocktailImage cocktail={cocktail} height={460} />
+          <CocktailImage cocktail={cocktail} height={460} priority />
         </div>
         <div>
           <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
@@ -69,9 +69,9 @@ export default function CocktailDetail({ cocktail, onBack, unit = "ml" }) {
             {cocktail.tagline}
           </p>
           <div style={{ marginBottom: 28 }}>
-            <h3 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 14px" }}>
+            <h2 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 14px" }}>
               Ingredients
-            </h3>
+            </h2>
             {cocktail.ingredients.map((ing, i) => (
               <div
                 key={i}
@@ -91,15 +91,15 @@ export default function CocktailDetail({ cocktail, onBack, unit = "ml" }) {
             ))}
           </div>
           <div style={{ marginBottom: 28 }}>
-            <h3 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 10px" }}>
+            <h2 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 10px" }}>
               Garnish
-            </h3>
+            </h2>
             <p style={{ margin: 0, fontSize: 15, color: "#444" }}>{cocktail.garnish}</p>
           </div>
           <div>
-            <h3 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 10px" }}>
+            <h2 style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, color: "#bbb", margin: "0 0 10px" }}>
               Method
-            </h3>
+            </h2>
             <p style={{ margin: 0, fontSize: 15, color: "#444", lineHeight: 1.7 }}>{cocktail.method}</p>
           </div>
         </div>
